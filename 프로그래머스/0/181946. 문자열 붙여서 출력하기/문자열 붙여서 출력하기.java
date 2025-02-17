@@ -5,11 +5,6 @@ public class Solution {
         Scanner sc = new Scanner(System.in);
         String a = sc.next();
         String b = sc.next();
-        
-        String remakeA = a.replace(" ", "");
-        String remakeB = b.replace(" ", "");
-            
-        System.out.print(remakeA);
-        System.out.print(remakeB);
+        System.out.print(a+b);
     }
 }
