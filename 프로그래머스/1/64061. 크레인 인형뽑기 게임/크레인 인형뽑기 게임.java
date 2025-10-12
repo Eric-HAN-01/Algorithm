@@ -7,16 +7,15 @@ class Solution {
         
         for(int move : moves){
             for(int j = 0; j < board.length; j++){
-                int doll = board[j][move - 1];
-                
-                if(doll != 0){
+                int pick = board[j][move - 1];
+                if(pick != 0){
                     board[j][move - 1] = 0;
                     
-                    if (!stack.isEmpty() && stack.peek() == doll) {
+                    if (!stack.isEmpty() && stack.peek() == pick) {
                         stack.pop();
                         answer += 2;
                     } else {
-                        stack.push(doll);
+                        stack.push(pick);
                     }
                     break;
                 }
