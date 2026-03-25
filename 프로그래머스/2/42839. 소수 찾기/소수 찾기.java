@@ -1,5 +1,4 @@
-
-import java.util.HashSet;
+import java.util.*;
 
 public class Solution {
     private char [] arr;
@@ -12,13 +11,13 @@ public class Solution {
         set = new HashSet<>();
 
         for(int i = 0 ; i <= arr.length; i++) {
-            dfs("",0, i);  //질문: 왜 for문 돌리는지...  dfs("",0)
+            dfs("",0, i);
         }
         return set.size();
     }
 
     private void dfs(String str, int depth, int index) {
-        if (depth == index) {  //질문: depth == check.length???
+        if (depth == index) {
             if(str.equals("")){
                 return;
             }
