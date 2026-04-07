@@ -40,8 +40,7 @@ public class Main {
         for(int i = 0; i < M; i++){
             for(int j = 0; j < N; j++){
                 if(state[i][j] == 0){
-                    count = 1;
-                    dfs(i, j);
+                    bfs(i, j);
                     result.add(count);
                 }
             }
@@ -56,16 +55,28 @@ public class Main {
 
     }
 
-    public static void dfs(int y, int x){
+    public static void bfs(int y, int x){
+        Queue<int[]> q = new LinkedList<>();
+        q.offer(new int[]{y, x});
         state[y][x] = 1;
 
-        for(int i = 0; i < 4; i++){
-            int nx = dx[i] + x;
-            int ny = dy[i] + y;
+        count = 1;
 
-            if(nx >= 0 && ny >= 0 && nx < N && ny < M && state[ny][nx] == 0){
-                count++;
-                dfs(ny,nx);
+        while(!q.isEmpty()){
+            int now[] = q.poll();
+            int cy = now[0];
+            int cx = now[1];
+
+            for(int i = 0; i < 4; i++){
+                int nx = cx + dx[i];
+                int ny = cy + dy[i];
+
+                if(nx >= 0 && ny >= 0 && nx < N && ny < M && state[ny][nx] == 0){
+                    state[ny][nx] = 1;
+                    count++;
+                    q.offer(new int[]{ny, nx});
+                }
+
             }
         }
     }
