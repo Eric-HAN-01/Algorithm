@@ -1,4 +1,3 @@
-
 import java.util.*;
 import java.io.*;
 
@@ -60,7 +59,7 @@ public class Main {
 
         System.out.println(sb);
 
-    } // void main
+    }
 
     public static void bfs(int x, int y){
         q.offer(new Node(x, y));
@@ -79,26 +78,10 @@ public class Main {
 
                 }
             }
-        } //while(!q.isEmpty())
-    }//bfs
-
-    /*
-    public static void dfs(int x, int y){
-        visited[y][x] = true;
-
-        for(int j = 0; j < 4; j++){
-            now_x = x + dx[j];
-            now_y = y + dy[j];
-
-            if(check() && !visited[now_x][now_y] && map[now_x][now_y] == 1){
-                dfs(now_x, now_y);
-            }
         }
     }
-    */
 
     public static boolean check(){
         return (now_x >= 0 &&  now_y >= 0 && now_x < M && now_y < N);
     }
-
-} // class
+}
